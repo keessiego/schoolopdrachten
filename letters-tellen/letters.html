@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+	<title>Letters tellen</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+
+<body>
+
+	<article>
+		<h3>Letters tellen</h3>
+
+		<p></p>
+
+		<button onclick="tel_alle_letters()">Tel alle letters</button>
+		<button class="outline" onclick="tel_letters('y')">Tel letter y</button><br/><br/>
+		Geef een letter: <input type="text" id="input_letter" style="width: 10%" onkeyup="tel_letters(value)">
+	</article>
+
+	<hr>
+
+	<article>
+		<div id="div_result">
+			<i>Klik op een knop of type een letter in het zoekvak om te beginnen</i>
+		</div>
+	</article>
+
+	<script type="text/javascript" src="letters.js"></script>
+
+</body>
+
+</html>

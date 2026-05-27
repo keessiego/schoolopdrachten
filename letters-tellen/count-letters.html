@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Teller</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+
+<body>
+
+    <article>
+        <h2>Letter Teller</h2>
+
+        <div>
+            <p id="array_weergave"></p>
+            <p id="array_lengte"></p>
+        </div>
+
+        <label for="input_letter">Geef een letter in: </label>
+        <input type="text" id="input_letter" maxlength="1" onkeyup="telLetters()">
+
+        <p id="resultaat"></p>
+    </article>
+
+    <script>
+        let array_letters = ["a", "g", "z", "z", "b", "c", "e", "z", "e", "y", "y", "z", "z", "z"];
+
+        array_letters.sort();
+
+        document.getElementById("array_weergave").innerHTML = "<b>Array inhoud:</b> " + array_letters.join(", ");
+        document.getElementById("array_lengte").innerHTML = "<b>Aantal elementen:</b> " + array_letters.length;
+
+        function telLetters() {
+            let ingevoerdeLetter = document.getElementById("input_letter").value;
+
+            let teller = 0;
+
+            if (ingevoerdeLetter === "") {
+                document.getElementById("resultaat").innerHTML = "";
+                return;
+            }
+
+            for (let i = 0; i < array_letters.length; i++) {
+                if (array_letters[i] === ingevoerdeLetter) {
+                    teller++;
+                }
+            }
+
+            document.getElementById("resultaat").innerHTML =
+                "De letter '" + ingevoerdeLetter + "' komt " + teller + " keer voor in de array.";
+        }
+    </script>
+
+</body>
+
+</html>
