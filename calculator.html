@@ -1,0 +1,116 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<title>JavaScript rekenmachine</title> 
+	<style> 
+		table { 
+			border: 1px solid black; 
+			margin-left: auto; 
+			margin-right: auto; 
+		} 
+
+		input[type="button"] { 
+			width: 100%; 
+			padding: 20px 30px; 
+			background-color: rgba(103, 104, 104, 0.199); 
+			color: black; 
+			font-size: 24px; 
+			font-weight: bold; 
+			border: none; 
+			border-radius: 10px;
+			 
+		} 
+
+		input[type="button"]:hover {
+			cursor: pointer;
+			background: #95989b;
+		}
+
+		input[type="button"].number { 
+			background-color: rgba(103, 104, 104, 0.059); 
+			color: black; 
+		} 
+
+		input[type="button"].number:hover {
+			cursor: pointer;
+			background: #b6b6b6;
+		}
+
+		input[type="text"] { 
+			padding: 20px 30px; 
+			font-size: 24px; 
+			font-weight: bold; 
+			border: none; 
+			border-radius: 5px; 
+			border: 2px solid black; 
+		} 
+	</style> 
+</head> 
+	
+<body> 
+	<table> 
+		<tr> 
+			<td colspan="4"><input type="text" readonly id="result" value=""></td> 
+		</tr> 
+		<tr> 
+			<td><input type="button" value="C" onclick="makeClear()"</td> 
+			<td><input type="button" value="<" onclick="inputOthers('<')"</td> 
+			<td><input type="button" value="%" onclick="inputOperator('%')" /></td> 
+			<td><input type="button" value="/" onclick="inputOperator('/')"</td> 
+		</tr> 
+		<tr> 
+			<td><input class="number" type="button" value="7" onclick="inputNumber('7')"</td> 
+			<td><input class="number" type="button" value="8" onclick="inputNumber('8')"</td> 
+			<td><input class="number" type="button" value="9" onclick="inputNumber('9')"</td> 
+			<td><input type="button" value="*" onclick="inputOperator('*')"</td> 
+		</tr> 
+		<tr> 
+			<td><input class="number" type="button" value="4" onclick="inputNumber('4')"</td> 
+			<td><input class="number" type="button" value="5" onclick="inputNumber('5')"</td> 
+			<td><input class="number" type="button" value="6" onclick="inputNumber('6')"</td> 
+			<td><input type="button" value="-" onclick="inputOperator('-')"</td> 
+		</tr> 
+		<tr> 
+			<td><input class="number" type="button" value="1" onclick="inputNumber('1')"</td> 
+			<td><input class="number" type="button" value="2" onclick="inputNumber('2')"</td> 
+			<td><input class="number" type="button" value="3" onclick="inputNumber('3')"</td> 
+			<td><input type="button" value="+" onclick="inputOperator('+')"</td> 
+		</tr> 
+		<tr> 
+			<td><input class="number" type="button" value="+/-" onclick="inputOthers('+-')"</td> 
+			<td><input class="number" type="button" value="0" onclick="inputNumber('0')"</td> 
+			<td><input class="number" type="button" value="," onclick="inputNumber('.')"</td> 
+			<td><input type="button" value="=" onclick="solve()"></td> 
+		</tr> 
+	</table> 
+
+	<script> 
+		const result = document.getElementById("result");
+		let operator = "";
+
+		function inputNumber(value) { 
+            result.value += value;	
+		} 
+
+		function inputOperator(value) { 
+            if (operator.length == 0) {
+				result.value += value;
+				operator = value;
+			}
+
+		} 
+
+		function solve() { 
+            // maak deze functie verder af
+
+		} 
+
+		function makeClear() { 
+			document.getElementById("result").value = ""; 
+			operator = "";
+		} 
+	</script> 
+</body> 
+
+</html> 
