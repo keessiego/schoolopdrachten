@@ -11,7 +11,96 @@
             overflow: hidden;
         }
 
-        /* Hier moet de animatie van de shapes */
+        .shape1,
+        .shape2,
+        .shape3,
+        .shape4 {
+            position: absolute;
+            border-radius: 12px;
+            will-change: transform, opacity;
+        }
+
+        .shape1 {
+            width: 80px;
+            height: 80px;
+            background: #ff6b6b;
+            left: 10%;
+            top: 20%;
+            animation: float 6s ease-in-out infinite;
+            animation-direction: alternate;
+        }
+
+        .shape2 {
+            width: 100px;
+            height: 60px;
+            background: #4ecdc4;
+            left: 70%;
+            top: 10%;
+            animation: float 10s ease-in-out infinite;
+            animation-direction: reverse;
+            animation-delay: 0.5s;
+        }
+
+        .shape3 {
+            width: 140px;
+            height: 30px;
+            background: #ffd166;
+            left: -20%;
+            top: 70%;
+            animation: slide 12s linear infinite;
+            animation-direction: reverse;
+        }
+
+        .shape4 {
+            width: 60px;
+            height: 60px;
+            background: #a29bfe;
+            left: 45%;
+            top: 40%;
+            animation: pulse 8s ease-in-out infinite;
+            animation-direction: normal;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-120px) rotate(180deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(-30vw);
+            }
+
+            100% {
+                transform: translateX(130vw);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.6);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+        }
     </style>
 </head>
 
