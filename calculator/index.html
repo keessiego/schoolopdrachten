@@ -55,7 +55,7 @@
 		</tr>
 		<tr>
 			<td><input type="button" value="C" onclick="makeClear()" </td>
-			<td><input type="button" value="<" onclick="inputOthers('<')" </td>
+			<td><input type="button" value="<" onclick="deleteOne()" </td>
 			<td><input type="button" value="%" onclick="inputOperator('%')" /></td>
 			<td><input type="button" value="/" onclick="inputOperator('/')" </td>
 		</tr>
@@ -78,7 +78,7 @@
 			<td><input type="button" value="+" onclick="inputOperator('+')" </td>
 		</tr>
 		<tr>
-			<td><input class="number" type="button" value="+/-" onclick="inputOthers('+-')" </td>
+			<td><input class="number" type="button" value="+/-" onclick="toggleSign('+-')" </td>
 			<td><input class="number" type="button" value="0" onclick="inputNumber('0')" </td>
 			<td><input class="number" type="button" value="," onclick="inputNumber('.')" </td>
 			<td><input type="button" value="=" onclick="solve()"></td>
@@ -114,11 +114,7 @@
 		function solve() {
 			let result = 0;
 			const display = document.getElementById("result").value;
-			console.log(display);
 			const myNumbers = display.split(operator);
-			console.log(myNumbers[0]);
-			console.log(myNumbers[1]);
-			console.log(operator);
 
 			if (operator == "+") {
 				result = parseFloat(myNumbers[0]) + parseFloat(myNumbers[1]);
@@ -134,6 +130,22 @@
 
 			document.getElementById("result").value = result;
 			solved = true;
+		}
+
+		function toggleSign() {
+			result.value = -result.value
+		}
+
+		function deleteOne() {
+			const lastChar = result.value.substring(result.value.length - 1);
+			if (operator == "") {
+				result.value = result.value.substring(0, result.value.length - 1);
+			} else if (lastChar == operator) {
+				result.value = result.value.substring(0, result.value.length - 1);
+				operator = "";
+			} else {
+				result.value = result.value.substring(0, result.value.length - 1);
+			}
 		}
 
 		function makeClear() {
